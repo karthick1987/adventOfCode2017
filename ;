@@ -1,13 +1,6 @@
 #---------------------------------------------------------------------
 # executables
 #---------------------------------------------------------------------
-RED='\033[0;31m'
-BLUE='\033[0;34m'
-NC='\033[0m' # No Color
-TAB='    '
-#---------------------------------------------------------------------
-# executables
-#---------------------------------------------------------------------
 MD := mkdir
 RM := rm
 CC = g++
@@ -31,12 +24,12 @@ SRC = $(wildcard *.cpp)
 OBJS=$(patsubst %.cpp,$(OUT_O_DIR)/%.o,$(SRC))
 
 $(OUT_O_DIR)/%.o: %.cpp
-	@echo -e $(BLUE)$(TAB)Invoking Compiler $(CC)
-	@echo -e $(RED)$(TAB)Compiling files $@ $(NC)
+	@echo 'Compiling files $@'
 	$(CC) -c $(FLAGS) $(STDFLAGS) $< -o $@
 
 $(BUILD_DIR)/adv1: $(OBJS)
-	@echo -e $(BLUE)$(TAB)Building Target "$@" $(NC)
+	@echo 'Building Target $@'
+	@echo "Linking "
 	$(CC) $(FLAGS) $(OFLAGS) $(STDFLAGS) -o $(BUILD_DIR)/adv1 $(OBJS)
 
 .PHONY: directories clean

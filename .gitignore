@@ -1,3 +1,7 @@
+#directories
+build/
+objs/
+
 # Prerequisites
 *.d
 
